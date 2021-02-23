@@ -27,7 +27,9 @@ class Form extends React.Component {
         const messageContainer = document.getElementById("message");
         event.preventDefault();
         messageContainer.textContent = `Hello, ${this.state.nombre} with email ${this.state.correo}`;
-        console.log(event);u60
+        console.log(event);
+    }
+    
     render() {
         return (
             <div>
