@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from './Card';
+import NotFoundPage from './NotFoundPage';
 
 let cardsInfo = [
     {
@@ -15,7 +15,7 @@ let cardsInfo = [
     },{
         id: 3,
         image: "https://www.todorock.com/wp-content/uploads/2019/05/Amy-Lee-evanescence.jpg",
-        title: "Hola",
+        title: "Hola a todos",
         description: "Primera descripción"
     },{
         id: 4,
@@ -25,16 +25,20 @@ let cardsInfo = [
     }
 ]
 
-const CardGrid = (props) => {
-    return (
-        <div className="cards-container">
-            {cardsInfo.map((cardInfo) => {
-                return(
-                    <Card image={cardInfo.image} title={cardInfo.title} description={cardInfo.description}/>
-                );
-            })}
+const Poster = ({match}) => {
+    console.log(match);
+
+    const poster = cardsInfo.filter((cardInfo) => parseInt(match.params.id, 10) == cardInfo.id)[0];
+    console.log(poster);
+
+    return (poster ? (
+        <div>
+            <h1>{poster.title}</h1>
+            <img src={poster.image} alt={poster.title}/>
         </div>
-    );
+    ) : (
+        <NotFoundPage />
+    ));
 }
 
-export default CardGrid
+export default Poster;
