@@ -30,7 +30,7 @@ const CardGrid = (props) => {
         <div className="cards-container">
             {cardsInfo.map((cardInfo) => {
                 return(
-                    <Card image={cardInfo.image} title={cardInfo.title} description={cardInfo.description}/>
+                    <Card id={cardInfo.id} image={cardInfo.image} title={cardInfo.title} description={cardInfo.description}/>
                 );
             })}
         </div>
