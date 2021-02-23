@@ -2,7 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import Banner from './Banner';
 import Form from './Form';
-import CardGrid from './CardGrid'
+import CardGrid from './CardGrid';
+import Poster from './Poster';
+import NotFoundPage from './NotFoundPage';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 /*let cardsInfo = [
@@ -40,13 +42,11 @@ function App() {
     </>*/
     <Router>
       <Switch>
+        <Route path="/cards/:id" component={Poster} />
         <Route path="/" exact component={Banner}/>
         <Route path="/cards" component={CardGrid} />
         <Route path="/form" component={Form} />
-        <Route component={() => {
-          return (
-            <h1>404 Not found</h1>
-          )}} />
+        <Route component={<NotFoundPage />} />
       </Switch>
     </Router>
   );
