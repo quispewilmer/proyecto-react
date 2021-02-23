@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
-const Card = ({image, title, description}) => {
+const Card = ({id, image, title, description}) => {
     return (
         <div className="cards-container__item">
-            <img src={image} alt={title} className="cards-container__item__img"/>
+            <Link to={`/cards/${id}`}>
+                <img src={image} alt={title} className="cards-container__item__img"/>
+            </Link>
             <h1 className="cards-container__item__title">{title}</h1>
             <p className="cards-container__item__description">{description}</p>
         </div>
